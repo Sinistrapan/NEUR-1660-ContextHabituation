@@ -9,11 +9,11 @@ Monica Ocitti
 Nathaniel Jesus-Lopes  
 
 ## Course Information:
-Course: NEUR 1660 
+Course: NEUR 1660  
 Date: May 10, 2023
 
 ## Course Information:
-Course: NEUR 1660 - Neural Computation in Learning and Decision-Making @Brown University
+Course: NEUR 1660 - Neural Computation in Learning and Decision-Making @Brown University 
 Term: Spring 2023
 
 ## Overview:
