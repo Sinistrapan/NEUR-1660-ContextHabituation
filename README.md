@@ -22,9 +22,8 @@ Habituation is a form of learning that involves a decrease in responsiveness to 
 ## Methods:
 The project involved several key steps:
 
-Analyzing research papers: The team analyzed research papers, including "Contextual Specificity of Habituation in Earthworms" by David Reyes-Jiménez and "When the Stimulus Is Predicted and What the Stimulus Predicts: Alternative Accounts of Habituation" by Geoffrey Hall, to understand the background information and experimental setup.  
-Applying computational models: Three computational models (RW, PHR, and SOP) were implemented to simulate the habituation response in different contexts. Each model has its own set of parameters and learning rules.  
-Comparing simulated and experimental data: The simulated data was compared to the experimental data obtained from the earthworm habituation experiment described in the research paper.  
+Analyzing research papers: The team analyzed research papers, including "Contextual Specificity of Habituation in Earthworms" by David Reyes-Jiménez and "When the Stimulus Is Predicted and What the Stimulus Predicts: Alternative Accounts of Habituation" by Geoffrey Hall, to understand the background information and experimental setup. Applying computational models: Three computational models (RW, PHR, and SOP) were implemented to simulate the habituation response in different contexts. Each model has its own set of parameters and learning rules. Comparing simulated and experimental data: The simulated data was compared to the experimental data obtained from the earthworm habituation experiment described in the research paper.  
+
 ### Rescorla-Wagner (RW) Model:  
 The RW model is a widely used model for associative learning. It assumes that organisms learn to associate an outcome's occurrence with a stimulus's presence. In the case of habituation, the model simulates the decay in associative strength between the stimulus and the expected outcome. The RW model was implemented with parameters such as the learning rate (LR) and initial associative strength (V). A weakening factor was also added to account for the decline in habituation over time.
 
