@@ -1,4 +1,3 @@
-# NEUR-1660-teamHabituation
 # Modeling Context Dependent Habituation
 
 ## Group Members:
