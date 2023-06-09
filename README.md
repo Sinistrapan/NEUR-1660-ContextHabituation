@@ -24,9 +24,9 @@ Building on the experiments in the earthworm paper, we have refined a task. We e
 ### Rescorla-Wagner (RW) Model:  
 The basic idea behind the RW model is that organisms learn to associate an outcome's occurrence with a stimulus's presence. This association's strength, known as the associative strength, is updated according to a simple learning rule that depends on the difference between the predicted and actual outcomes. In the case of habituation, the actual outcome is the absence of any significant event or reward, while the predicted outcome is based on the strength of the association between the stimulus and the expected outcome. If the stimulus is repeatedly presented without any significant event or reward, the strength of the association will gradually decrease, reflecting the organism's habituation to the stimulus.  
 The RW model is a simple yet effective model used to simulate associative learning. The model consists of a set of parameters that influence the rate of learning, including the learning rate (LR), the initial associative strength (V), and the salience of the stimulus (Salience). In our study, we set the LR to 0.1 and the V to 0.5 for both contexts. We ignored the salience parameter since we are doing a habituation simulation that uses the same stimulus with different contexts. RW relies on rewards to connect things together. Since we are doing a habituation task with no reward, the model should disassociate the stimulus from the expected occurrence. We named the reward as noEvent.  
-```noEvents = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0];```
+```noEvents = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0];  ```
 The stimuli were applied in phases of 10 trials as described previously.  
-```context = [1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1];```
+```context = [1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1];  ```
 Below is the loop to calculate the associative strength over trails. Where the delta_V is the change in associative strength on a given trial.  
 ```
 for i = 1:length(noEvents)
