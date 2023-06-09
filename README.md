@@ -52,6 +52,7 @@ lambda_no_event(n) = V_event - sum(V_no_event);
 ```
 
 We use S to calculate the change in associative strength (delta_V_no_event) between the conditioned stimulus (CS) and the absence of the unconditioned stimulus (US) for each trial. This change is then used to update the overall associative strength between the CS and the US (V_no_event). In addition, S is used to update the associability of the CS (a), which represents how easily the CS can be associated with the US. Specifically, S is used to calculate the absolute difference between the intensity of the US (lambda_event) and the difference between the current strength of association between the CS and the US (V_event = 0.5) and the sum of all previous strengths of association between the CS and the absence of the US (V_no_event). Figure-5 on the next page shows the associability of stimulus across the trials in different phases.  
+<img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure5.jpg" width="100%">
 
 ### Sometimes Opponent Process (SOP) Model:  
 The SOP model claims that motivations are controlled by a network of nodes that react to different stimuli. These nodes go through inactive, active 1, and active 2 states in response to stimuli. The model considers the opponent process theory of motivation, which suggests that the habituation response results from two opposing processes: an activation process (a-process) and an inhibition process (b-process). Figure 4 on the right explained the SOP model in theory. In our study, we used the SOP model to simulate the habituation response of earthworms in different contexts. Below is the parameters for SOP model:
@@ -75,6 +76,9 @@ if Vcsus > 1
 ```
 
 Association is what allowed learning to happen, as you can see in the first line, pa1_cs and pa1_us are multiplied because the concurrent activation of nodes is what leads to learning, then the this value is added to Vcsus which is the strength of association, and this is multiplied by the sum of the CS nodes in A1 and A2 to get the p2_us parameter, which sends nodes from I to A2.  
+
+<img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure7.jpg" width="100%">
+
 
 ## Conclusion:
 The project aimed to explore the associative nature of habituation by simulating context-dependent habituation using computational models. The simulated data from the models was compared to the experimental data obtained from the earthworm habituation experiment. The models aimed to capture the habituation response in different contexts. The root mean squared error (RMSE) was calculated to assess the similarity between the simulated and experimental data. While the RMSE was approximately 0.05 for all models, the SOP model showed more potential due to its added complexity and additional variables. However, all models had limitations in accurately capturing all aspects of the habituation phenomenon. 
