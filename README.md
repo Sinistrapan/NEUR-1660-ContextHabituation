@@ -35,7 +35,7 @@ for i = 1:length(noEvents)
     simulatedResponse(i) = sum(V(context(i))); 
 End
 ```
-<img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure2.png" width="350">
+<img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure2.png" width="600">
 
 ### Pearce-Hall/Rodriguez (PHR) Model:  
 The PHR model incorporates the Rescorla-Wagner learning rule and a salience update rule to simulate habituation. The salience of stimuli is allowed to change over time, which can significantly affect the habituation response. The model includes variables such as context (CS), stimulus (US), associability (a), intensity of the US (lambda), and salience (S). The salience is updated after each trial based on the difference between the intensity of the US and the current strength of association between the CS and the absence of the US.
