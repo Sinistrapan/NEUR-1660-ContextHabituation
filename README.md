@@ -39,7 +39,7 @@ for i = 1:length(noEvents)
     simulatedResponse(i) = sum(V(context(i))); 
 End
 ```
-<img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure2.png" width="100%">
+<img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure2.jpg" width="100%">
 
 ### Pearce-Hall/Rodriguez (PHR) Model:  
 According to the Hall and Rodriguez theory, habituation can be modeled as the process of learning that no event or consequence will occur after a stimulus is presented. The model consists of two main components: the Rescorla-Wagner learning rule and a rule for updating the salience of the stimuli. The PHR model allows the salience of the stimuli to change over time, which can significantly impact the habituation response. In our study, we used the PHR model to simulate the habituation response of earthworms in different contexts. We defined several variables, including the context (CS), stimulus (US), associability of the context (a), intensity of the US (lambda), strength of the association between the stimulus and no event occurring after stimulus presentation (V_no_event), and an initial salience (S) of 0.4 for each context. We updated the salience after each trial using the following equations:
