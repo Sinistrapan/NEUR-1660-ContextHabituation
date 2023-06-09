@@ -38,16 +38,50 @@ End
 <img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure2.png" width="600">
 
 ### Pearce-Hall/Rodriguez (PHR) Model:  
-The PHR model incorporates the Rescorla-Wagner learning rule and a salience update rule to simulate habituation. The salience of stimuli is allowed to change over time, which can significantly affect the habituation response. The model includes variables such as context (CS), stimulus (US), associability (a), intensity of the US (lambda), and salience (S). The salience is updated after each trial based on the difference between the intensity of the US and the current strength of association between the CS and the absence of the US.
+According to the Hall and Rodriguez theory, habituation can be modeled as the process of learning that no event or consequence will occur after a stimulus is presented. The model consists of two main components: the Rescorla-Wagner learning rule and a rule for updating the salience of the stimuli. The PHR model allows the salience of the stimuli to change over time, which can significantly impact the habituation response. In our study, we used the PHR model to simulate the habituation response of earthworms in different contexts. We defined several variables, including the context (CS), stimulus (US), associability of the context (a), intensity of the US (lambda), strength of the association between the stimulus and no event occurring after stimulus presentation (V_no_event), and an initial salience (S) of 0.4 for each context. We updated the salience after each trial using the following equations:
+```
+delta_V_no_event(n) = S(n-1) * a(n-1) * lambda_no_event(n-1);
+a(n) = abs(lambda_event - (V_event - sum(V_no_event(n-1))));
+V_no_event(n) = delta_V_no_event(n) - delta_V_no_event(n-1);
+S(n) = abs(V_event - V_no_event(n));
+lambda_no_event(n) = V_event - sum(V_no_event);
+```
+
+We use S to calculate the change in associative strength (delta_V_no_event) between the conditioned stimulus (CS) and the absence of the unconditioned stimulus (US) for each trial. This change is then used to update the overall associative strength between the CS and the US (V_no_event). In addition, S is used to update the associability of the CS (a), which represents how easily the CS can be associated with the US. Specifically, S is used to calculate the absolute difference between the intensity of the US (lambda_event) and the difference between the current strength of association between the CS and the US (V_event = 0.5) and the sum of all previous strengths of association between the CS and the absence of the US (V_no_event). Figure-5 on the next page shows the associability of stimulus across the trials in different phases.  
 
 ### Sometimes Opponent Process (SOP) Model:  
-The SOP model considers habituation as a result of two opposing processes: activation (a-process) and inhibition (b-process). The model simulates the learning process by updating the strengths of different nodes based on the concurrent activation of the nodes. The model includes parameters such as probabilities (p1_cs, p1_us), decay rates (d1, d2), weights (r1, r2), and an inhibitory learning rate (Ln).
+The SOP model claims that motivations are controlled by a network of nodes that react to different stimuli. These nodes go through inactive, active 1, and active 2 states in response to stimuli. The model considers the opponent process theory of motivation, which suggests that the habituation response results from two opposing processes: an activation process (a-process) and an inhibition process (b-process). Figure 4 on the right explained the SOP model in theory. In our study, we used the SOP model to simulate the habituation response of earthworms in different contexts. Below is the parameters for SOP model:
+
+```
+p1_cs = 0.3608;
+p1_us = 0.4156;
+d1 = 0.0891;
+d2 = 0.0996; 
+r1 = 0.8780;
+r2 = 0.7042; 
+Ln = 0.0516; 
+```
+p1_cs is the correlated intensity for node I to node A1; d1 and d2 are the decay parameter for node A1 to node A2 and node A2 to node I; r1 and r2 represent the weight of pa1_cs and pac2_cs; ln is the inhibitory learning rate. The main simplification of our SOP model is that there is only one parameter for d1 and d2 that is present for both the US and the CS, rather than them each having their own. The SOP model defines 3 delta values, for the change in pa1, pa2 and pI by multiplying the current number of nodes in each state by the probability of them moving to the next state, and then adding those to the next state while subtracting them from the initial state.  
+
+```
+dVn = Ln .* (pa1_cs .* pa1_us);
+Vcsus = Vcsus + dVn;
+if Vcsus > 1
+  Vcsus = 1;
+```
+
+Association is what allowed learning to happen, as you can see in the first line, pa1_cs and pa1_us are multiplied because the concurrent activation of nodes is what leads to learning, then the this value is added to Vcsus which is the strength of association, and this is multiplied by the sum of the CS nodes in A1 and A2 to get the p2_us parameter, which sends nodes from I to A2.  
 
 ## Results:
 The simulated data from the models was compared to the experimental data obtained from the earthworm habituation experiment. The models aimed to capture the habituation response in different contexts. The root mean squared error (RMSE) was calculated to assess the similarity between the simulated and experimental data. While the RMSE was approximately 0.05 for all models, the SOP model showed more potential due to its added complexity and additional variables.
 
 ## Conclusion:
-The project aimed to explore the associative nature of habituation by simulating context-dependent habituation using computational models. The RW, PHR, and SOP models were implemented and compared to experimental data. While the models showed some ability to simulate habituation, they had limitations in accurately capturing all aspects of the phenomenon. The SOP model, with its added complexity, showed more promise for future work. However, due to time constraints, further exploration and refinement of the models were not possible.
+We used three computational models - the Rescorla-Wagner (RW) model, the Pearce-Hall/Rodriguez (PHR) model, and the Sometimes Opponent Process (SOP) model - to simulate context-dependent habituation. Our findings were compared to data obtained from the experiment described in the paper "Contextual Specificity of Habituation in Earthworms."
+In the original RW model, we observed a gradual decay in associative strength over 16 trials, from 0.45 to 0.1, with an average difference of approximately 0.05. However, the model did not adequately consider the concept of context, treating stimuli in different contexts as either the same or different stimuli. To improve the model, we added a weakening factor to account for the decline in habituation over time. The modified model, while capturing some features of habituation, still had limited ability to distinguish between states with different contexts of the same stimulus.
+The PHR model, which allows the salience of stimuli to change over time, was also used. In our simulation, the PHR model demonstrated a learning process where the stimuli's salience and the associative strength between the stimulus and the occurrence of no event were adjusted over trials.
+The SOP model, based on the opponent process theory of motivation, was another approach we tested. In our simplified version of the SOP model, the concurrent activation of nodes led to learning, and the strength of association (Vcsus) was adjusted accordingly.
+We are unable to determine the best model simply by comparing simulations with experimental data since all models had a root mean squared error of approximately 0.05. However, the SOP model, with its added complexity and additional variables, has more potential in future work. Unfortunately, due to a scheduling conflict, our group was unable to meet and continue our work as expected. Our current model is still too far from understanding either habituation or realistic application. However, this exercise gave me a better understanding of the connection between computer models and neuroscience and real world applications
+Our group work was divided into five parts. Sinistra created an illustration of the earthworm experiment and modeled the experiment with the RW model. Monica modeled it with the PHR model, and Max did it with the SOP model. Nate helped us find the best parameters for our models. Jeremy made a Modified version of my RW model. 
 
 ## References:
 Hall, G., & Rodriguez, G. (2020). "When the Stimulus Is Predicted and What the Stimulus Predicts: Alternative Accounts of Habituation". Journal of Experimental Psychology: Animal Learning and Cognition, 46(3), 327-340.  
