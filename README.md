@@ -75,10 +75,9 @@ if Vcsus > 1
   Vcsus = 1;
 ```
 
-Association is what allowed learning to happen, as you can see in the first line, pa1_cs and pa1_us are multiplied because the concurrent activation of nodes is what leads to learning, then the this value is added to Vcsus which is the strength of association, and this is multiplied by the sum of the CS nodes in A1 and A2 to get the p2_us parameter, which sends nodes from I to A2.  
-
 <img src="https://github.com/Sinistrapan/NEUR-1660-ContextHabituation/blob/main/Figure7.jpg" width="100%">
 
+Association is what allowed learning to happen, as you can see in the first line, pa1_cs and pa1_us are multiplied because the concurrent activation of nodes is what leads to learning, then the this value is added to Vcsus which is the strength of association, and this is multiplied by the sum of the CS nodes in A1 and A2 to get the p2_us parameter, which sends nodes from I to A2.  
 
 ## Conclusion:
 The project aimed to explore the associative nature of habituation by simulating context-dependent habituation using computational models. The simulated data from the models was compared to the experimental data obtained from the earthworm habituation experiment. The models aimed to capture the habituation response in different contexts. The root mean squared error (RMSE) was calculated to assess the similarity between the simulated and experimental data. While the RMSE was approximately 0.05 for all models, the SOP model showed more potential due to its added complexity and additional variables. However, all models had limitations in accurately capturing all aspects of the habituation phenomenon. 
