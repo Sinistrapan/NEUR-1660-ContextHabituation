@@ -1,7 +1,7 @@
 # Modeling Context Dependent Habituation
 
 ## Group Members:
-Sinistra Chengjun Pan  
+Sinistra Chengjun Pan(chengjun_pan@brown.edu)  
 Jeremy Fleming  
 Max Newman  
 Monica Ocitti  
