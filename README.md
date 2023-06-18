@@ -2,10 +2,10 @@
 
 ## Group Members:
 Sinistra Chengjun Pan(chengjun_pan@brown.edu)  
-Jeremy Fleming  
-Max Newman  
-Monica Ocitti  
-Nathaniel Jesus-Lopes  
+Jeremy Fleming(jeremy_fleming@brown.edu)  
+Max Newman(max_newman@brown.edu)  
+Monica Ocitti(monica_ocitti@brown.edu)  
+Nathaniel Jesus-Lopes(nathaniel_jesus-lopes@brown.edu)  
 
 ## Course Information:
 Course: NEUR 1660 - Neural Computation in Learning and Decision-Making @Brown University  
